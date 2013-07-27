@@ -28,7 +28,7 @@ Template Name: Book
 </div>
 
 <div class="year">
-  <?php the_field( 'nibs-book-year', get_the_ID() ); ?>
+  <?php the_field( 'nibs-book-year' ); ?>
 </div>
 
 <?php $page_count = get_field( 'nibs-page-count' ); ?>
@@ -36,9 +36,12 @@ Template Name: Book
   <div class="page-count"><?php echo $page_count; ?> pages.</div>
 <?php endif; ?>
 
-<div class="isbn">
-  <?php the_field( 'nibs-isbn', get_the_ID() ); ?>
-</div>
+<?php the_div_field( 'nibs-isbn', 'isbn', 'ISBN: ', '' ); ?>
+
+<?php the_div_field( 'nibs-isbn-13', 'isbn-13', 'ISBN-13: ', '' ); ?>
+
+<?php the_div_field( 'nibs-book-price', 'book-standard-price', 'Price: ', '' ); ?>
+
 
 <div class="content"><?php the_content(); ?></div>
 

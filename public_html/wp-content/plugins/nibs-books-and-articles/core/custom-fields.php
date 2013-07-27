@@ -53,6 +53,14 @@ if(function_exists("register_field_group"))
         'formatting' => 'html',
       ),
       array (
+        'key' => 'nibs-isbn-13',
+        'label' => 'ISBN 13',
+        'name' => 'nibs-isbn-13',
+        'type' => 'text',
+        'default_value' => '',
+        'formatting' => 'html',
+      ),
+      array (
         'key' => 'field_51f35eda5b07f',
         'label' => 'Year',
         'name' => 'nibs-book-year',
