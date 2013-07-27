@@ -48,6 +48,72 @@ function nibs_register_taxonomies() {
       'hierarchical' => true,
     )
   );
+
+  register_taxonomy(
+      'nibs-book-format',
+      null,
+      array(
+        'label' => __( 'Format' ),
+        'labels' => array(
+            'name'              => _( 'Formats' ),
+            'singular_name'     => _( 'Format' ),
+            'search_items'      => __( 'Search Formats' ),
+            'all_items'         => __( 'All Formats' ),
+            'parent_item'       => __( 'Parent Format' ),
+            'parent_item_colon' => __( 'Parent Format:' ),
+            'edit_item'         => __( 'Edit Format' ),
+            'update_item'       => __( 'Update Format' ),
+            'add_new_item'      => __( 'Add New Format' ),
+            'new_item_name'     => __( 'New Format Name' ),
+            'menu_name'         => __( 'Format' ),                
+      ),
+      'rewrite' => null,
+      //'show_ui' => false,
+      'hierarchical' => true,
+    )
+  );
+
+  // The following taxonomy should not be modifiable.
+  register_taxonomy(
+      'nibs-book-sale-option',
+      null,
+      array(
+        'label' => __( 'Sale Option' ),
+        'labels' => array(
+            'name'              => _( 'Sale Options' ),
+            'singular_name'     => _( 'Sale Option' ),
+            'search_items'      => __( 'Search Sale Options' ),
+            'all_items'         => __( 'All Sale Options' ),
+            'parent_item'       => __( 'Parent Sale Option' ),
+            'parent_item_colon' => __( 'Parent Sale Option:' ),
+            'edit_item'         => __( 'Edit Sale Option' ),
+            'update_item'       => __( 'Update Sale Option' ),
+            'add_new_item'      => __( 'Add New Sale Option' ),
+            'new_item_name'     => __( 'New Sale Option Name' ),
+            'menu_name'         => __( 'Sale Option' ),                
+      ),
+      'rewrite' => null,
+      //'show_ui' => false,
+      'hierarchical' => true,
+    )
+  );
+
+  $book_sale_options = array(
+    'On Sale' => 'This item is currently offered at a reduced price',
+    'Recommended' => 'This is a recommended item',
+    'Buy Online' => 'Add a link to purchase this item online'
+  );
+
+  foreach( $book_sale_options as $term => $description ) {
+    wp_insert_term(
+      $term, // the term 
+      'nibs-book-sale-option', // the taxonomy
+      array(
+        'description' => $description,
+      )
+    );
+  }
+
 }
 
 function nibs_register_post_types() {
@@ -76,7 +142,9 @@ function nibs_register_post_types() {
         'supports' => array( 'title', 'editor', 'thumbnail', ),
         'taxonomies' => array(
             'nibs-book-author',
-            'nibs-book-publisher' ),
+            'nibs-book-publisher',
+            'nibs-book-format',
+            'nibs-book-sale-option' ),
         'menu_icon' => plugins_url( 'images/image.png', __FILE__ ),
         'has_archive' => false,
         'hierarchical' => false,
