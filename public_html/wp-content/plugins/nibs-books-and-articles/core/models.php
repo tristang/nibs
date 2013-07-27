@@ -98,21 +98,32 @@ function nibs_register_taxonomies() {
     )
   );
 
-  $book_sale_options = array(
-    'On Sale' => 'This item is currently offered at a reduced price',
-    'Recommended' => 'This is a recommended item',
-    'Buy Online' => 'Add a link to purchase this item online'
+  wp_insert_term(
+    'On Sale', // the term 
+    'nibs-book-sale-option', // the taxonomy
+    array(
+      'description' => 'This item is currently offered at a reduced price',
+      'slug' => 'nibs-on-sale'
+    )
   );
 
-  foreach( $book_sale_options as $term => $description ) {
-    wp_insert_term(
-      $term, // the term 
-      'nibs-book-sale-option', // the taxonomy
-      array(
-        'description' => $description,
-      )
-    );
-  }
+  wp_insert_term(
+    'Recommended',
+    'nibs-book-sale-option',
+    array(
+      'description' => 'This is a recommended item',
+      'slug' => 'nibs-recommended'
+    )
+  );
+
+  wp_insert_term(
+    'Buy Online',
+    'nibs-book-sale-option',
+    array(
+      'description' => 'Add a link to purchase this item online',
+      'slug' => 'nibs-buy-online'
+    )
+  );
 
 }
 
