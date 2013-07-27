@@ -26,4 +26,13 @@ function nibs_register_menu() {
   );
 }
 
+function nibs_register_post_types_admin() {
+
+    add_theme_support( 'post-thumbnails', array(
+        'nibs-book',
+    ) );
+
+    // TODO(Rhys): Add image sizes as required
+    //add_image_size( 'nibs-thingy-here', 80, 96, true );
+}
 ?>
