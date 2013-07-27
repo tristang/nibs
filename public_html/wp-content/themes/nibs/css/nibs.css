@@ -25,14 +25,14 @@ h1, h2, h3, h4, h5, h6, p {
 
 html {
   background: white;
-  padding: 0 20px; }
+  padding: 0 20px;
+  border-top: 10px solid #d74d0c; }
 
 body {
   *zoom: 1;
   max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
-  border-top: 40px solid #f36c2d;
   font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif; }
   body:before, body:after {
     content: " ";
@@ -41,8 +41,7 @@ body {
     clear: both; }
 
 header {
-  border-top: 25px solid black;
-  padding: 20px 0 30px 0;
+  padding: 20px 0;
   border-bottom: 1px solid black;
   margin-bottom: 30px; }
   header h1 {
@@ -84,4 +83,4 @@ footer {
       background: black;
       color: #eeeeee; }
     .post-head .post-meta time {
-      background: #f36c2d; }
+      background: #888888; }
