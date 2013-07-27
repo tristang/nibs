@@ -24,7 +24,13 @@
 			<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time>
 		</div>
 	</div>
-	<?php the_content(); ?>			
+	<section class='post-body with-sidebar'>
+		<?php the_content(); ?>			
+	</section>
+	
+	<section class='sidebar'>
+		<?php dynamic_sidebar('post-sidebar'); ?>
+	</section>
 
 	<?php //comments_template( '', true ); ?>
 

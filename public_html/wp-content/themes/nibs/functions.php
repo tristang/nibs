@@ -95,3 +95,39 @@
 			</article>
 		<?php endif;
 	}
+
+	/**
+	 * Register widgets
+	 */
+	function nibs_widgets_init() {
+		register_sidebar( array(
+			'name' => __( 'Main Navigation', 'nibs' ),
+			'id' => 'sidebar-1',
+			'description' => __( 'Contains site nav', 'nibs' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>',
+		) );
+
+		register_sidebar( array(
+			'name' => __( 'Post Sidebar', 'nibs' ),
+			'id' => 'sidebar-2',
+			'description' => __( 'Appears by posts', 'nibs' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>',
+		) );
+
+		register_sidebar( array(
+			'name' => __( 'Book sidebar', 'nibs' ),
+			'id' => 'sidebar-3',
+			'description' => __( 'Appears on book pages', 'nibs' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>',
+		) );
+	}
+	add_action( 'widgets_init', 'nibs_widgets_init' );
