@@ -102,7 +102,7 @@
 	function nibs_widgets_init() {
 		register_sidebar( array(
 			'name' => __( 'Main Navigation', 'nibs' ),
-			'id' => 'sidebar-1',
+			'id' => 'main-nav',
 			'description' => __( 'Contains site nav', 'nibs' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget' => '</aside>',
@@ -111,8 +111,8 @@
 		) );
 
 		register_sidebar( array(
+			'id' => 'post-sidebar',
 			'name' => __( 'Post Sidebar', 'nibs' ),
-			'id' => 'sidebar-2',
 			'description' => __( 'Appears by posts', 'nibs' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget' => '</aside>',
