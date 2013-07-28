@@ -13,6 +13,24 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
   margin: 0; }
 
+h1 {
+  font-size: 40px; }
+
+h2 {
+  font-size: 30px; }
+
+h3 {
+  font-size: 20px; }
+
+h4 {
+  font-size: 18px; }
+
+h5 {
+  font-size: 16px; }
+
+h6 {
+  font-size: 14px; }
+
 p {
   line-height: 1.5em;
   margin: 0 0 1.5em 0; }
@@ -22,13 +40,13 @@ a {
   a:hover {
     color: black; }
 
-.post-list-item-head h2, .post-list-item-head time, .post-head .post-meta h2, .post-head .post-meta h3, .post-head .post-meta time, .post-head .post-meta .post-tags li {
+.post-list-item-head h2, .post-list-item-head time, .post-head .post-meta h2, .post-head .post-meta h3, .post-head .post-meta time, .post-head .post-meta .post-tags li, article.book .post-head .book-title, article.book .post-head .book-meta {
   display: inline-block;
   margin: 0;
   background: white;
   display: inline-block;
-  padding: 5px; }
-  .post-list-item-head h2 a, .post-list-item-head time a, .post-head .post-meta h2 a, .post-head .post-meta h3 a, .post-head .post-meta time a, .post-head .post-meta .post-tags li a {
+  padding: 6px; }
+  .post-list-item-head h2 a, .post-list-item-head time a, .post-head .post-meta h2 a, .post-head .post-meta h3 a, .post-head .post-meta time a, .post-head .post-meta .post-tags li a, article.book .post-head .book-title a, article.book .post-head .book-meta a {
     text-decoration: none; }
 
 .container {
@@ -150,9 +168,6 @@ footer {
     padding: 20px; }
     .post-head .post-meta h2, .post-head .post-meta h3, .post-head .post-meta time, .post-head .post-meta .post-tags li {
       line-height: 1;
-      background: white;
-      padding: 6px;
-      display: inline-block;
       float: left;
       margin: 3px; }
     .post-head .post-meta .post-title {
@@ -172,3 +187,20 @@ footer {
           color: white; }
     .post-head .post-meta time {
       background: #888888; }
+
+article.book .post-head {
+  min-height: 100px;
+  background: url(images/book-bg.jpg);
+  padding: 30px; }
+  article.book .post-head .book-title, article.book .post-head .book-meta {
+    margin: 3px; }
+  article.book .post-head img.book-cover-image {
+    float: right;
+    width: 300px;
+    height: auto;
+    border: 10px solid white; }
+
+.book-meta .book-author {
+  margin: 0 0 15px 0; }
+.book-meta .price.on-sale .book-standard-price {
+  text-decoration: line-through; }

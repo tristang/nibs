@@ -7,45 +7,58 @@ Template Name: Book
 
 <?php the_post(); ?>
 
-<h1><?php the_title(); ?></h1>
 
-<div class="authors">
-  <?php echo get_the_term_list( get_the_ID(), 'nibs-book-author', 'by ', ', ', '' ); ?>
-</div>
+<article class="book">
+	<div class='post-head'>
+		<?php if( has_post_thumbnail() ) { the_post_thumbnail( 'large', array( 'class'=>'book-cover-image' ) ); } ?>
+		<h2 class='book-title'><?php the_title(); ?></h2>
+		<br />
+		<div class="book-meta">
+			<h3 class='author-name'>
+				<?php echo get_the_term_list( get_the_ID(), 'nibs-book-author', 'by ', ', ', '' ); ?>
+			</h3>
 
-<?php
-  if( has_post_thumbnail() ) {
-    the_post_thumbnail( 'large', array( 'class'=>'book-cover-image' ) );
-  }
-?>
+			<div class="publisher">
+				<?php echo get_the_term_list( get_the_ID(), 'nibs-book-publisher', '', ', ', '' ); ?>
+			</div>
 
-<div class="publisher">
-  <?php echo get_the_term_list( get_the_ID(), 'nibs-book-publisher', '', ', ', '' ); ?>
-</div>
+			<div class="format">
+				<?php echo get_the_term_list( get_the_ID(), 'nibs-book-format', '', ', ', '' ); ?>
+			</div>
 
-<div class="format">
-  <?php echo get_the_term_list( get_the_ID(), 'nibs-book-format', '', ', ', '' ); ?>
-</div>
+			<div class="year">
+				Published:
+				<?php the_field( 'nibs-book-year' ); ?>
+			</div>
 
-<div class="year">
-  <?php the_field( 'nibs-book-year' ); ?>
-</div>
+			<?php $page_count = get_field( 'nibs-page-count' ); ?>
+			<?php if( $page_count > 0 ) : ?>
+				<div class="page-count"><?php echo $page_count; ?> pages</div>
+			<?php endif; ?>
 
-<?php $page_count = get_field( 'nibs-page-count' ); ?>
-<?php if( $page_count > 0 ) : ?>
-  <div class="page-count"><?php echo $page_count; ?> pages.</div>
-<?php endif; ?>
+			<?php the_div_field( 'nibs-isbn', 'isbn', 'ISBN: ', '' ); ?>
+			<?php the_div_field( 'nibs-isbn-13', 'isbn-13', 'ISBN-13: ', '' ); ?>
 
-<?php the_div_field( 'nibs-isbn', 'isbn', 'ISBN: ', '' ); ?>
-<?php the_div_field( 'nibs-isbn-13', 'isbn-13', 'ISBN-13: ', '' ); ?>
+		</div>
+		<br />
+		<div class="book-meta">
+			<div class="price <?php echo has_term( 'nibs-on-sale', 'nibs-book-sale-option' ) ? 'on-sale' : 'not-on-sale' ?>">
+				<div class="book-standard-price">
+					Price: $<?php the_field('nibs-book-price') ?>
+				</div>
 
-<div class="price <?php echo has_term( 'nibs-on-sale', 'nibs-book-sale-option' ) ? 'on-sale' : 'not-on-sale' ?>">
-  <?php the_div_field( 'nibs-book-price', 'book-standard-price', 'Price: ', '' ); ?>
-  <?php if( has_term( 'nibs-on-sale', 'nibs-book-sale-option' ) ) : ?>
-    <?php the_div_field( 'nibs-book-sale-price', 'book-sale-price', 'Sale Price: ', '' ); ?>
-  <?php endif; ?>
-</div>
+				<?php if( has_term( 'nibs-on-sale', 'nibs-book-sale-option' ) ) : ?>
+					<div class="book-sale-price">
+						Sale Price: $<?php the_field('nibs-book-sale-price') ?>
+					</div>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div>
 
-<div class="content"><?php the_content(); ?></div>
+	<section class="post-body">
+		<?php the_content(); ?>
+	</section>
+</article>
 
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>
