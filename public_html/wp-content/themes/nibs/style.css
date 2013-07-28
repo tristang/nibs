@@ -157,7 +157,9 @@ footer {
 
 .post-head {
   position: relative;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  min-height: 130px;
+  background: #eeeeee; }
   .post-head img {
     width: 100%;
     height: auto; }
