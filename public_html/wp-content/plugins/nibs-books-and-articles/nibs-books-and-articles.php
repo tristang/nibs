@@ -11,9 +11,6 @@ include_once( 'core/custom-fields.php' );
 add_action( 'init', 'nibs_register_taxonomies' );
 add_action( 'init', 'nibs_register_post_types' );
 
-// Set up post type options
-add_action( 'admin_init', 'nibs_register_post_types_admin' );
-
 // Register menus
 add_action( 'admin_menu', 'nibs_register_menu' );
 

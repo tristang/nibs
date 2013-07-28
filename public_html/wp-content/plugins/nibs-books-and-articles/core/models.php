@@ -147,6 +147,7 @@ function nibs_register_post_types() {
             'parent_item_colon' => 'Parent Book'
         ),
 
+        'rewrite' => true,
         'public' => true,
         'menu_position' => 15,
         'show_in_menu' => 'nibs-admin-menu',
@@ -157,7 +158,7 @@ function nibs_register_post_types() {
             'nibs-book-format',
             'nibs-book-sale-option' ),
         'menu_icon' => plugins_url( 'images/image.png', __FILE__ ),
-        'has_archive' => false,
+        'has_archive' => 'books',
         'hierarchical' => false,
     )
   );
