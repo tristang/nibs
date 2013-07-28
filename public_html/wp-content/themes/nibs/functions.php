@@ -131,3 +131,16 @@
 		) );
 	}
 	add_action( 'widgets_init', 'nibs_widgets_init' );
+
+
+	function the_div_field( $field, $class, $before, $after ) {
+		$value = get_field( $field );
+		if( !empty( $value ) ) {
+			echo
+				'<div class="' . $class . '">' .
+				$before . $value . $after .
+				'</div>';
+		}
+	}
+
+?>

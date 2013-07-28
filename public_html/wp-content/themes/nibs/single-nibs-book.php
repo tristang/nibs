@@ -1,0 +1,52 @@
+<?php
+/*
+Template Name: Book
+*/
+?>
+<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
+
+<?php the_post(); ?>
+
+<h1><?php the_title(); ?></h1>
+
+<div class="authors">
+  <?php echo get_the_term_list( get_the_ID(), 'nibs-book-author', 'by ', ', ', '' ); ?>
+</div>
+
+<?php
+  if( has_post_thumbnail() ) {
+    the_post_thumbnail( 'large', array( 'class'=>'book-cover-image') );
+  }
+?>
+
+<div class="publisher">
+  <?php echo get_the_term_list( get_the_ID(), 'nibs-book-publisher', '', ', ', '' ); ?>
+</div>
+
+<div class="format">
+  <?php echo get_the_term_list( get_the_ID(), 'nibs-book-format', '', ', ', '' ); ?>
+</div>
+
+<div class="year">
+  <?php the_field( 'hello-book-year' ); ?>
+</div>
+
+<?php $page_count = get_field( 'hello-page-count' ); ?>
+<?php if( $page_count > 0 ) : ?>
+  <div class="page-count"><?php echo $page_count; ?> pages.</div>
+<?php endif; ?>
+
+<?php the_div_field( 'hello-isbn', 'isbn', 'ISBN: ', '' ); ?>
+<?php the_div_field( 'hello-isbn-13', 'isbn-13', 'ISBN-13: ', '' ); ?>
+
+<div class="price <?php echo has_term( 'nibs-on-sale', 'nibs-book-sale-option' ) ? 'on-sale' : 'not-on-sale' ?>">
+  <?php the_div_field( 'hello-book-price', 'book-standard-price', 'Price: ', '' ); ?>
+  <?php if has_term( 'hello-on-sale', 'nibs-book-sale-option' ) : ?>
+    <?php the_div_field( 'nibs-book-sale-price', 'book-sale-price', 'Sale Price: ', '' ); ?>
+  <?php endif; ?>
+</div>
+
+
+<div class="content"><?php the_content(); ?></div>
+
+<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>
