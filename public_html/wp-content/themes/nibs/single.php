@@ -19,9 +19,11 @@
 		<?php the_post_thumbnail('full'); ?>
 		<div class='post-meta'>
 			<h2 class='post-title'><?php the_title(); ?></h2>
-			<br />
+			<br class="clear" />
 			<h3 class='author-name'> <?php the_author_meta( 'display_name' ) ?> </h3>
-			<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time>
+			<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?></time>
+			
+			<?php the_tags('<ul class="post-tags"><li>','</li><li>','</li></ul>'); ?>
 		</div>
 	</div>
 	<section class='post-body with-sidebar'>

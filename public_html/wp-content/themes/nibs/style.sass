@@ -18,6 +18,9 @@
 .container
   +outer-container
 
+br.clear
+  clear: both
+
 // ======================================
 // Layout
 // ======================================
@@ -25,8 +28,8 @@
 html
   background: white
   padding: 0 $gutter
-  border-top: 10px solid $orange
-  +box-shadow(inset 0 2px 0 black)
+  border-top: 20px solid $orange
+  +box-shadow(inset 0 10px 0 black)
 
 
 body
@@ -59,7 +62,7 @@ header
       text-decoration: none
       text-transform: uppercase
       &:hover
-        text-decoration: underline
+        border-bottom: 3px solid $orange
         
 
 
@@ -105,9 +108,11 @@ footer
     height: auto
   .post-meta
     position: absolute
-    bottom: 15px
-    left: 15px
-    h2, h3, time
+    bottom: 0
+    left: 0
+    width: 100%
+    padding: 20px
+    h2, h3, time, .post-tags li
       line-height: 1
       background: white
       padding: 6px
@@ -116,12 +121,20 @@ footer
       margin: 3px
     .post-title
       font-size: 40px
-    .author-name, time
+    .author-name, time, .post-tags li
       font-size: 14px
       text-transform: uppercase
       font-weight: 300
       background: black
       color: #eee
+    .post-tags
+      float: right
+      li
+        float: left
+        background: rgba(black, .5)
+        a
+          color: white
+          text-decoration: none
     time
       background: #888
 
